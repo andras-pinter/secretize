@@ -1,0 +1,60 @@
+[package]
+name = "secretize"
+description = "Secret storing in a very secure manner"
+authors = ["Andras Pinter <andras@pinter.io>"]
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["zeroize"]
+zeroize = ["zeroize/default"]
+base64 = ["base64/default"]
+serde = ["serde/default"]
+openapi = ["poem-openapi", "serde_json"]
+eq = []
+
+[dependencies.argon2]
+version = "0.5"
+features = ["zeroize", "std"]
+
+[dependencies.rand_core]
+version = "0.6"
+features = ["getrandom"]
+
+[dependencies.thiserror]
+version = "1.0"
+
+[dependencies.zeroize]
+version = "1.5"
+optional = true
+
+[dependencies.base64]
+version = "0.21"
+optional = true
+
+[dependencies.serde]
+version = "1.0"
+optional = true
+
+[dependencies.poem-openapi]
+version = "2.0"
+optional = true
+
+[dependencies.serde_json]
+version = "1.0"
+optional = true
+
+[dev-dependencies.rstest]
+version = "0.16"
+
+[dev-dependencies.rstest_reuse]
+version = "0.5"
+
+[dev-dependencies.parking_lot]
+version = "0.12"
+
+[dev-dependencies.serde_json]
+version = "1.0"
+
+[dev-dependencies.serde_derive]
+version = "1.0"
