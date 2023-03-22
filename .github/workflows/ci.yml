@@ -1,0 +1,44 @@
+name: Secretize pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: --deny warnings
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: extractions/setup-just@v1
+    - name: Check
+      run: just check
+  
+  test:
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v3
+    - uses: extractions/setup-just@v1
+    - name: Run unit tests
+      run: just test
+  
+  lint:
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v3
+    - uses: extractions/setup-just@v1
+    - name: Run unit tests
+      run: just lint
+
+  code-style:
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v3
+    - uses: extractions/setup-just@v1
+    - name: Run unit tests
+      run: just check-format
