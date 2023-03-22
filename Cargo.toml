@@ -6,8 +6,7 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["zeroize"]
-zeroize = ["zeroize/default"]
+default = []
 base64 = ["base64/default"]
 serde = ["serde/default"]
 openapi = ["poem-openapi", "serde_json"]
@@ -26,7 +25,6 @@ version = "1.0"
 
 [dependencies.zeroize]
 version = "1.5"
-optional = true
 
 [dependencies.base64]
 version = "0.21"

@@ -23,3 +23,4 @@
     cargo test --features base64,openapi
     cargo test --features eq
     cargo test --all-features
+    cargo test --no-default-features
